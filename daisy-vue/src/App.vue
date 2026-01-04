@@ -3,5 +3,5 @@ import Button from './button/Button.vue';
 </script>
 
 <template>
-  <Button size="md" color="secondary" label="Button"></Button>
+  <Button color="success" loading loading-spinner-type="bars" size="xl"></Button>
 </template>

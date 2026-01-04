@@ -1,6 +1,6 @@
 export interface IButtonProps {
   color?: 'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error';
-  size?: 'xs' | 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'lg' | 'xl';
   outline?: boolean;
   ghost?: boolean;
   link?: boolean;
@@ -9,7 +9,7 @@ export interface IButtonProps {
   dash?: boolean;
   square?: boolean;
   circle?: boolean;
-  label: string;
+  label?: string;
   loading?: boolean;
   loadingSpinnerType?: 'spinner' | 'dots' | 'ring' | 'ball' | 'bars' | 'infinity';
   loadingPosition?: 'left' | 'right';
