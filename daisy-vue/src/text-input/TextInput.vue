@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import type { ITextInputProps } from './ITextInputProps';
 const props = defineProps<ITextInputProps>();
-defineModel();
+const model = defineModel();
 const accentColor = computed(() => {
   switch (props.accentColor) {
     case 'primary':
@@ -50,7 +50,7 @@ const ghostClass = computed(() => {
 <template>
   <input
     :placeholder="placeholder"
-    v-model="modelValue"
+    v-model="model"
     type="text"
     :class="['input', accentColor, sizeClass, ghostClass, invalidClass]"
   />

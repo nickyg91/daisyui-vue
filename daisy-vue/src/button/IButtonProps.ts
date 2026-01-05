@@ -1,6 +1,10 @@
+import type { ColorType } from '@/types/ColorType';
+import type { LoadingSpinnerType } from '@/types/LoadingSpinnerType';
+import type { SizeType } from '@/types/SizeType';
+
 export interface IButtonProps {
-  color?: 'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error';
-  size?: 'xs' | 'sm' | 'lg' | 'xl';
+  color?: ColorType;
+  size?: SizeType;
   outline?: boolean;
   ghost?: boolean;
   link?: boolean;
@@ -11,6 +15,6 @@ export interface IButtonProps {
   circle?: boolean;
   label?: string;
   loading?: boolean;
-  loadingSpinnerType?: 'spinner' | 'dots' | 'ring' | 'ball' | 'bars' | 'infinity';
-  loadingPosition?: 'left' | 'right';
+  loadingSpinnerType?: LoadingSpinnerType;
+  loadingPosition?: SizeType;
 }
