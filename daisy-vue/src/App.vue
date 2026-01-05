@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import Button from './button/Button.vue';
 import TextInput from './text-input/TextInput.vue';
 import SelectList from './select/SelectList.vue';
+import CardComponent from './card/CardComponent.vue';
 type obj = { id: number; name: string };
 const val = ref('test');
 const selectedString = ref<string | undefined>();
@@ -35,7 +36,26 @@ const objVals: obj[] = [
       size="xs"
     ></Button>
     <TextInput v-model="val" placeholder="Enter your name" size="lg" />
-    <SelectList v-model="selectedString" :items="stringVals"></SelectList>
-    <SelectList v-model="selectedObj" :items="objVals" display-name-key="name"></SelectList>
+    <SelectList placeholder="Select a value" v-model="selectedString" :items="stringVals">
+    </SelectList>
+    <SelectList
+      placeholder="Select a value"
+      v-model="selectedObj"
+      :items="objVals"
+      display-name-key="name"
+    ></SelectList>
+    <CardComponent class="w-1/2" size="lg" shadow-size="xl">
+      <template #card-title>
+        <h2 class="text-2xl">Title</h2>
+      </template>
+      <template #card-content>
+        <div>some content</div>
+      </template>
+      <template #card-actions>
+        <div class="flex justify-end">
+          <Button label="Sure"></Button>
+        </div>
+      </template>
+    </CardComponent>
   </div>
 </template>

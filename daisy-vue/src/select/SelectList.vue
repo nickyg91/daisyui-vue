@@ -43,6 +43,10 @@ const size = computed(() => {
 
 const ghost = computed(() => (props.ghost ? 'select-ghost' : ''));
 
+const invalidClass = computed(() => {
+  return props.invalid ? 'select-error' : '';
+});
+
 const isSelected = (value: T | DeepReadonly<T>) => {
   if (typeof value === 'object' && props.selectOptionValueKey) {
     const val = value as Record<string, unknown>;
@@ -68,7 +72,8 @@ const getOptionValue = (option: T | DeepReadonly<T>) => {
 };
 </script>
 <template>
-  <select v-model="model" :class="['select', color, size, ghost]" :placeholder="placeholder">
+  <select v-model="model" :class="['select', color, size, ghost, invalidClass]">
+    <option v-if="placeholder" disabled selected>{{ placeholder }}</option>
     <option
       v-for="(option, index) in items"
       :key="JSON.stringify(option)"
