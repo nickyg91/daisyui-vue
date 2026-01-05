@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { h, ref, render } from 'vue';
 import Button from './button/Button.vue';
 import TextInput from './text-input/TextInput.vue';
 import SelectList from './select/SelectList.vue';
 import CardComponent from './card/CardComponent.vue';
+import ToastNotification from './toast/ToastNotification.vue';
 type obj = { id: number; name: string };
 const val = ref('test');
 const selectedString = ref<string | undefined>();
@@ -19,6 +20,19 @@ const objVals: obj[] = [
     name: 'kelsey',
   },
 ];
+const comp = h(
+  'div',
+  {
+    class: 'flex flex-col gap-y-2',
+  },
+  [
+    'this really is a message',
+    h(Button, {
+      color: 'warning',
+      label: 'ha',
+    }),
+  ],
+);
 </script>
 
 <template>
@@ -57,5 +71,7 @@ const objVals: obj[] = [
         </div>
       </template>
     </CardComponent>
+    <ToastNotification alignment="bottom" position="end" title="test" color="info" :content="comp">
+    </ToastNotification>
   </div>
 </template>
