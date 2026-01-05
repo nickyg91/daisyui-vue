@@ -3,9 +3,7 @@ import EventBus from '@/events/EventBus';
 class ToastEventBus {
   private static instance: EventBus;
 
-  private constructor() {
-    // Prevent direct instantiation
-  }
+  private constructor() {}
 
   static getInstance(): EventBus {
     if (!ToastEventBus.instance) {

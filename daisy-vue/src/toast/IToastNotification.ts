@@ -13,4 +13,5 @@ export interface IToastNotification {
   position: ToastNotificationPosition;
   alignment: ToastNotificationAlignment;
   group?: string;
+  id?: string;
 }

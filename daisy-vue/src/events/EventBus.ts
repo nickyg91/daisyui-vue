@@ -13,7 +13,7 @@ export default class EventBus {
     if (set.size === 0) delete this.map[event];
   }
 
-  emit(event: string, payload?: any) {
+  emit<T>(event: string, payload?: T) {
     const call = (set: Set<Function>) => set && set.forEach((fn) => fn(payload));
     if (this.map[event]) {
       call(this.map[event]);
