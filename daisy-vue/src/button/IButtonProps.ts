@@ -16,5 +16,5 @@ export interface IButtonProps {
   label?: string;
   loading?: boolean;
   loadingSpinnerType?: LoadingSpinnerType;
-  loadingPosition?: SizeType;
+  loadingPosition?: 'left' | 'right' | 'center';
 }

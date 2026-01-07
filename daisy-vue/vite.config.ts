@@ -21,7 +21,7 @@ export default defineConfig({
       fileName: `daisy-vue`,
     },
     rolldownOptions: {
-      external: ['vue', 'tailwindcss', 'daisyui'],
+      external: ['vue', 'tailwindcss', 'daisyui', 'uuid'],
       output: {
         globals: {
           vue: 'Vue',
