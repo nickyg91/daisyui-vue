@@ -12,4 +12,5 @@ export interface IToastNotification {
   color: ColorType;
   group?: string;
   id?: string;
+  soft?: boolean;
 }

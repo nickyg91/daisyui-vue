@@ -58,6 +58,7 @@ const toastAlignment = computed(() => {
           :color="toast.color"
           :title="toast.title"
           :key="toast.id"
+          :soft="toast.soft"
           v-for="toast in toasts"
           class="mb-2"
         ></ToastNotification>

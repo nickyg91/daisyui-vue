@@ -65,6 +65,8 @@ const buttonType = computed(() => {
 
 const buttonSize = computed(() => {
   switch (buttonProps.size) {
+    case 'xs':
+      return 'btn-xs';
     case 'sm':
       return 'btn-sm';
     case 'lg':

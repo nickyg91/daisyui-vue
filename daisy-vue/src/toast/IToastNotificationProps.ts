@@ -5,4 +5,5 @@ export interface IToastNotificationProps {
   content: string | VNode;
   title?: string;
   color?: ColorType;
+  soft?: boolean;
 }

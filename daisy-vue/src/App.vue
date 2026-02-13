@@ -4,8 +4,8 @@ import Button from './button/Button.vue';
 import TextInput from './text-input/TextInput.vue';
 import SelectList from './select/SelectList.vue';
 import CardComponent from './card/CardComponent.vue';
-import ToastNotification from './toast/ToastNotification.vue';
 import ToastGroup from './toast/ToastGroup.vue';
+import BadgeComponent from './badge/BadgeComponent.vue';
 import { useToast } from './toast/composables/useToast';
 type obj = { id: number; name: string };
 const toast = useToast();
@@ -44,6 +44,7 @@ const onShowToastClicked = () => {
     content: 'This is a toast in the default group',
     color: color,
     duration: 5000,
+    soft: true,
   });
 };
 const secondaryGroupToast = () => {
@@ -110,5 +111,11 @@ const secondaryGroupToast = () => {
     ></Button>
     <ToastGroup></ToastGroup>
     <ToastGroup alignment="top" position="end" group-name="secondary"></ToastGroup>
+    <BadgeComponent size="lg" soft :color="'error'">
+      <template #body>
+        tester
+        <Button loading-spinner-type="bars" size="xs" circle @click="secondaryGroupToast"> </Button>
+      </template>
+    </BadgeComponent>
   </div>
 </template>

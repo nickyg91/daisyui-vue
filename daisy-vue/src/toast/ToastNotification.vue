@@ -25,10 +25,14 @@ const toastColor = computed(() => {
 const isVnode = computed(() => {
   return typeof props.content === 'object';
 });
+
+const isSoft = computed(() => {
+  return props.soft ? 'alert-soft' : '';
+});
 </script>
 <template>
   <div :class="['min-w-1/12']">
-    <div class="flex flex-col justify-start gap-y-2" :class="['alert', toastColor]">
+    <div class="flex flex-col justify-start gap-y-2" :class="['alert', toastColor, isSoft]">
       <div class="w-full">
         <p v-if="title" class="text-lg">
           {{ title }}
