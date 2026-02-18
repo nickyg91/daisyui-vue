@@ -1,4 +1,14 @@
 {
-  "extends": "./tsconfig.app.json",
-  "include": ["lib", "global.d.ts"]
+
+  "include": ["lib", "global.d.ts", "src/**/*.vue"],
+  "exclude": ["src/App.vue", "src/main.ts", "src/__tests__"],
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "esnext",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "baseUrl": ".",
+  }
 }

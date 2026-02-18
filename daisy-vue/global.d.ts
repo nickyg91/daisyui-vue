@@ -1,6 +1,6 @@
-import { IToastService } from './src/toast/IToastService';
+import { type IToastService } from './src/toast/IToastService';
 declare module 'vue' {
   interface ComponentCustomProperties {
-    $toast: typeof IToastService;
+    $toast: IToastService;
   }
 }
