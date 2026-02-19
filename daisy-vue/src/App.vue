@@ -104,7 +104,6 @@ const secondaryGroupToast = () => {
       size="xs"
       @click="onShowToastClicked"
     ></Button>
-    <Button> </Button>
     <Button
       class="w-1/6"
       label="Secondary Group Toast"
@@ -115,14 +114,16 @@ const secondaryGroupToast = () => {
     <ToastGroup></ToastGroup>
     <ToastGroup alignment="top" position="end" group-name="secondary"></ToastGroup>
     <BadgeComponent size="lg" soft :color="'error'">
-      <template #body>
-        tester
-        <Button loading-spinner-type="bars" size="xs" circle @click="secondaryGroupToast"> </Button>
-      </template>
+      <template #body> tester </template>
     </BadgeComponent>
     <Button label="Show Modal" @click="visible = !visible"></Button>
     <ModalComponent v-model:visible="visible" title="Test Modal" modal>
       <template #body> hello </template>
+      <template #footer>
+        <div class="flex justify-end">
+          <Button label="Close" @click="visible = false"></Button>
+        </div>
+      </template>
     </ModalComponent>
   </div>
 </template>
