@@ -7,12 +7,14 @@ import CardComponent from './card/CardComponent.vue';
 import ToastGroup from './toast/ToastGroup.vue';
 import BadgeComponent from './badge/BadgeComponent.vue';
 import { useToast } from './toast/composables/useToast';
+import ModalComponent from './modal/ModalComponent.vue';
 type obj = { id: number; name: string };
 const toast = useToast();
 const val = ref('test');
 const selectedString = ref<string | undefined>();
 const stringVals = ref(['test', 'hello', 'hi']);
 const selectedObj = ref<obj | undefined>();
+const visible = ref(false);
 const objVals: obj[] = [
   {
     id: 1,
@@ -102,6 +104,7 @@ const secondaryGroupToast = () => {
       size="xs"
       @click="onShowToastClicked"
     ></Button>
+    <Button> </Button>
     <Button
       class="w-1/6"
       label="Secondary Group Toast"
@@ -117,5 +120,9 @@ const secondaryGroupToast = () => {
         <Button loading-spinner-type="bars" size="xs" circle @click="secondaryGroupToast"> </Button>
       </template>
     </BadgeComponent>
+    <Button label="Show Modal" @click="visible = !visible"></Button>
+    <ModalComponent v-model:visible="visible" title="Test Modal" modal>
+      <template #body> hello </template>
+    </ModalComponent>
   </div>
 </template>
