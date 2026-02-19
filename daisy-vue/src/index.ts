@@ -6,4 +6,5 @@ export { default as Badge } from '@/badge/BadgeComponent.vue';
 export { default as Card } from '@/card/CardComponent.vue';
 export { default as Toast } from '@/toast/ToastGroup.vue';
 export { default as ToastService } from './toast/plugins/ToastService';
+export { default as Modal } from '@/modal/ModalComponent.vue';
 export { useToast } from './toast/composables/useToast';
