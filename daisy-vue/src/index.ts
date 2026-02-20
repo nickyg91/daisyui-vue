@@ -7,4 +7,6 @@ export { default as Card } from '@/card/CardComponent.vue';
 export { default as Toast } from '@/toast/ToastGroup.vue';
 export { default as ToastService } from './toast/plugins/ToastService';
 export { default as Modal } from '@/modal/ModalComponent.vue';
-export { useToast } from './toast/composables/useToast';
+export { default as DynamicModalService } from '@/modal/plugins/DynamicModalService';
+export { useDynamicModal } from '@/modal/useDynamicModal';
+export { useToast } from '@/toast/composables/useToast';

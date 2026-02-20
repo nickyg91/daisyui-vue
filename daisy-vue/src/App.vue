@@ -8,8 +8,12 @@ import ToastGroup from './toast/ToastGroup.vue';
 import BadgeComponent from './badge/BadgeComponent.vue';
 import { useToast } from './toast/composables/useToast';
 import ModalComponent from './modal/ModalComponent.vue';
+import DynamicModalProvider from './modal/DynamicModalProvider.vue';
+import { useDynamicModal } from './modal/useDynamicModal';
 type obj = { id: number; name: string };
+
 const toast = useToast();
+const dynamicModalService = useDynamicModal();
 const val = ref('test');
 const selectedString = ref<string | undefined>();
 const stringVals = ref(['test', 'hello', 'hi']);
@@ -56,6 +60,13 @@ const secondaryGroupToast = () => {
     color: 'info',
     group: 'secondary',
     duration: 5000,
+  });
+};
+
+const showDynamicModal = () => {
+  const component = h('div', { class: 'p-4' }, 'Hello from dynamic modal!');
+  dynamicModalService.showDialog('test', component, {
+    title: 'Dynamic Modal Title',
   });
 };
 </script>
@@ -125,5 +136,8 @@ const secondaryGroupToast = () => {
         </div>
       </template>
     </ModalComponent>
+    <Button label="Show Dynamic Modal" @click="showDynamicModal"></Button>
+
+    <DynamicModalProvider></DynamicModalProvider>
   </div>
 </template>

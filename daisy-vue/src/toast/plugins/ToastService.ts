@@ -1,9 +1,9 @@
 import type { App } from 'vue';
 import type { IToastNotification } from '../IToastNotification';
 import ToastEventBus from '../ToastEventBus';
-import { toastInjectionKey } from '../ToastServiceSymbol';
 import { v4 as uuidv4 } from 'uuid';
 import type { IToastService } from '../IToastService';
+import { TOAST_INJECTION_KEY } from '../composables/useToast';
 export default {
   install(app: App) {
     const toastNotificationService: IToastService = {
@@ -21,6 +21,6 @@ export default {
     };
 
     app.config.globalProperties.$toast = toastNotificationService;
-    app.provide(toastInjectionKey, toastNotificationService);
+    app.provide(TOAST_INJECTION_KEY, toastNotificationService);
   },
 };

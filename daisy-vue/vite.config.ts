@@ -17,7 +17,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'daisy-vue',
-      fileName: `daisy-vue`,
+      fileName: `daisy-vue.js`,
     },
     rolldownOptions: {
       external: ['vue', 'tailwindcss', 'daisyui', 'uuid'],

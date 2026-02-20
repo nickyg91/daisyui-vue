@@ -37,19 +37,17 @@ watch(visible, (newVal) => {
   <Teleport to="body">
     <dialog class="modal" ref="dialogRef">
       <div class="modal-box">
-        <slot name="header">
-          <div class="flex justify-between">
-            <p class="text-lg">{{ title }}</p>
-            <Button
-              label="x"
-              variant="ghost"
-              size="sm"
-              class="btn-circle btn-sm"
-              @click="visible = false"
-            >
-            </Button>
-          </div>
-        </slot>
+        <div class="flex justify-between">
+          <p class="text-lg">{{ title }}</p>
+          <Button
+            label="x"
+            variant="ghost"
+            size="sm"
+            class="btn-circle btn-sm"
+            @click="visible = false"
+          >
+          </Button>
+        </div>
         <slot name="body"></slot>
         <slot class="modal-action" name="footer"></slot>
       </div>
