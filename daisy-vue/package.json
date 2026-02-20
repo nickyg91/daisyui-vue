@@ -15,7 +15,7 @@
     "preview": "vite preview",
     "test:unit": "vitest",
     "build-only": "vite build",
-    "build-lib": "tsc -b ./tsconfig.lib.json && vite build",
+    "build-lib": "vue-tsc -b ./tsconfig.lib.json && vite build",
     "type-check": "vue-tsc --build",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
