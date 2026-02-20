@@ -1,23 +1,23 @@
-{
-  "extends": "@vue/tsconfig/tsconfig.lib.json",
-  "include": ["global.d.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["node_modules", "src/App.vue", "src/__tests__/**", "src/main.ts", "dist"],
-  "compilerOptions": {
-    "outDir": "dist/types",
-    "declaration": true,
-    "sourceMap": false,
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "preserve",
-    "jsxImportSource": "vue",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
-}
+// {
+//   "extends": "@vue/tsconfig/tsconfig.lib.json",
+//   "include": ["global.d.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+//   "exclude": ["node_modules", "src/App.vue", "src/__tests__/**", "src/main.ts", "dist"],
+//   "compilerOptions": {
+//     "outDir": "dist/types",
+//     "declaration": true,
+//     "sourceMap": false,
+//     "target": "esnext",
+//     "module": "esnext",
+//     "strict": true,
+//     "importHelpers": true,
+//     "moduleResolution": "node",
+//     "allowSyntheticDefaultImports": true,
+//     "skipLibCheck": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "jsx": "preserve",
+//     "jsxImportSource": "vue",
+//     "paths": {
+//       "@/*": ["./src/*"]
+//     }
+//   }
+// }
