@@ -10,6 +10,7 @@ import { useToast } from './toast/composables/useToast';
 import ModalComponent from './modal/ModalComponent.vue';
 import DynamicModalProvider from './modal/DynamicModalProvider.vue';
 import { useDynamicModal } from './modal/useDynamicModal';
+import DrawerComponent from './drawer/DrawerComponent.vue';
 type obj = { id: number; name: string };
 
 const toast = useToast();
@@ -65,10 +66,11 @@ const secondaryGroupToast = () => {
 
 const showDynamicModal = () => {
   const component = h('div', { class: 'p-4' }, 'Hello from dynamic modal!');
-  dynamicModalService.showDialog('test', component, {
+  dynamicModalService.showDialog(component, {
     title: 'Dynamic Modal Title',
   });
 };
+const drawerVisible = ref(false);
 </script>
 
 <template>
@@ -127,7 +129,7 @@ const showDynamicModal = () => {
     <BadgeComponent size="lg" soft :color="'error'">
       <template #body> tester </template>
     </BadgeComponent>
-    <Button label="Show Modal" @click="visible = !visible"></Button>
+    <Button class="w-1/6" label="Show Modal" @click="visible = !visible"></Button>
     <ModalComponent v-model:visible="visible" title="Test Modal" modal>
       <template #body> hello </template>
       <template #footer>
@@ -136,8 +138,11 @@ const showDynamicModal = () => {
         </div>
       </template>
     </ModalComponent>
-    <Button label="Show Dynamic Modal" @click="showDynamicModal"></Button>
-
+    <Button class="w-1/6" label="Show Dynamic Modal" @click="showDynamicModal"></Button>
     <DynamicModalProvider></DynamicModalProvider>
+    <Button class="w-1/6" label="Show Drawer" @click="drawerVisible = !drawerVisible"></Button>
+    <DrawerComponent class="w-1/2" v-model:visible="drawerVisible" :side="'left'">
+      <
+    </DrawerComponent>
   </div>
 </template>

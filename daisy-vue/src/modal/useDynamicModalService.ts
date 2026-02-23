@@ -1,5 +1,6 @@
 import { defineComponent, h, ref, Teleport, type Component, markRaw, readonly } from 'vue';
 import ModalComponent from './ModalComponent.vue';
+import { v4 as uuidv4 } from 'uuid';
 
 type EventEmitterType = { [key in string]: Function };
 export const DYNAMIC_MODAL_INJECTION_KEY = Symbol('DYNAMIC_MODAL_INJECTION_KEY');
@@ -14,13 +15,10 @@ export interface IDynamicModalOptions {
 export const useDynamicModalService = () => {
   const openDialogs = ref<Map<string, Component>>(new Map());
 
-  const showDialog = <T extends Component>(
-    name: string,
-    component: T,
-    options: IDynamicModalOptions,
-  ) => {
-    if (openDialogs.value.has(name)) {
-      return;
+  const showDialog = <T extends Component>(component: T, options: IDynamicModalOptions): string => {
+    const id = uuidv4();
+    if (openDialogs.value.has(id)) {
+      return id;
     }
 
     const emitters = Object.keys(options.emits ?? {}).reduce(
@@ -58,10 +56,10 @@ export const useDynamicModalService = () => {
                 modal: true,
                 'onUpdate:visible': (value: boolean | undefined) => {
                   if (!value) {
-                    closeDialog(name);
+                    closeDialog(id);
                   }
                 },
-                visible: openDialogs.value.has(name),
+                visible: openDialogs.value.has(id),
               },
               {
                 body: () => h('div', view),
@@ -71,12 +69,13 @@ export const useDynamicModalService = () => {
           ]);
       },
     });
-    openDialogs.value.set(name, markRaw(dialog));
+    openDialogs.value.set(id, markRaw(dialog));
+    return id;
   };
 
-  const closeDialog = (name: string) => {
-    if (openDialogs.value.has(name)) {
-      openDialogs.value.delete(name);
+  const closeDialog = (id: string) => {
+    if (openDialogs.value.has(id)) {
+      openDialogs.value.delete(id);
     }
   };
 

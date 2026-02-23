@@ -10,5 +10,6 @@ export const useDynamicModal = () => {
   }
   return {
     showDialog: dynamicModalService.showDialog,
+    closeDialog: dynamicModalService.closeDialog,
   };
 };
