@@ -11,6 +11,7 @@ import ModalComponent from './modal/ModalComponent.vue';
 import DynamicModalProvider from './modal/DynamicModalProvider.vue';
 import { useDynamicModal } from './modal/useDynamicModal';
 import DrawerComponent from './drawer/DrawerComponent.vue';
+import Multiselect from './multiselect/Multiselect.vue';
 type obj = { id: number; name: string };
 
 const toast = useToast();
@@ -19,6 +20,7 @@ const val = ref('test');
 const selectedString = ref<string | undefined>();
 const stringVals = ref(['test', 'hello', 'hi']);
 const selectedObj = ref<obj | undefined>();
+const selectedObjs = ref<obj[]>([]);
 const visible = ref(false);
 const objVals: obj[] = [
   {
@@ -28,6 +30,10 @@ const objVals: obj[] = [
   {
     id: 2,
     name: 'kelsey',
+  },
+  {
+    id: 3,
+    name: 'sofia',
   },
 ];
 const comp = h(
@@ -80,6 +86,7 @@ const drawerVisible = ref(false);
     </div>
     <div>{{ selectedObj }}</div>
     <div>{{ selectedString }}</div>
+    <div>{{ selectedObjs }}</div>
     <Button
       class="w-1/6"
       color="success"
@@ -96,6 +103,14 @@ const drawerVisible = ref(false);
       :items="objVals"
       display-name-key="name"
     ></SelectList>
+    <Multiselect
+      v-model="selectedObjs"
+      :items="objVals"
+      select-option-value-key="id"
+      display-name-key="name"
+      filterKey="name"
+    >
+    </Multiselect>
     <CardComponent class="w-1/2" size="lg" shadow-size="xl">
       <template #card-title>
         <h2 class="text-2xl">Title</h2>
@@ -139,10 +154,10 @@ const drawerVisible = ref(false);
       </template>
     </ModalComponent>
     <Button class="w-1/6" label="Show Dynamic Modal" @click="showDynamicModal"></Button>
-    <DynamicModalProvider></DynamicModalProvider>
     <Button class="w-1/6" label="Show Drawer" @click="drawerVisible = !drawerVisible"></Button>
     <DrawerComponent class="w-1/2" v-model:visible="drawerVisible" :side="'left'">
-      <
     </DrawerComponent>
+
+    <DynamicModalProvider></DynamicModalProvider>
   </div>
 </template>
