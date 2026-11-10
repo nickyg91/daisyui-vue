@@ -1,14 +1,14 @@
 {
   "name": "daisy-vue",
   "version": "0.0.1",
+  "private": true,
   "files": [
     "dist"
   ],
-  "private": true,
   "type": "module",
-  "engines": {
-    "node": "^20.19.0 || >=22.12.0"
-  },
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -19,33 +19,33 @@
     "type-check": "vue-tsc --build",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
-    "format": "prettier --write --experimental-cli src/"
+    "format": "oxfmt src/"
   },
   "dependencies": {
     "uuid": "^13.0.0",
-    "vue": "^3.5.26"
+    "vue": "^3.5.45"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.18",
-    "@tsconfig/node24": "^24.0.3",
-    "@types/jsdom": "^27.0.0",
-    "@types/node": "^24.10.4",
-    "@vitejs/plugin-vue": "^6.0.3",
+    "@tailwindcss/vite": "^4.3.5",
+    "@tsconfig/node26": "^26.0.1",
+    "@types/jsdom": "^30.0.0",
+    "@types/node": "^26.6.6",
+    "@vitejs/plugin-vue": "^6.0.10",
     "@vue/test-utils": "^2.4.6",
-    "@vue/tsconfig": "^0.8.1",
-    "daisyui": "^5.5.14",
-    "jsdom": "^27.3.0",
-    "npm-run-all2": "^8.0.4",
-    "oxlint": "^1.36.0",
-    "prettier": "3.7.4",
-    "tailwindcss": "^4.1.18",
-    "typescript": "~5.9.3",
+    "@vue/tsconfig": "^0.9.1",
+    "daisyui": "^5.7.50",
+    "jsdom": "^31.0.0",
+    "npm-run-all2": "^9.0.4",
+    "oxfmt": "^0.78.0",
+    "oxlint": "^1.93.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "~6.0.2",
     "vite": "npm:rolldown-vite@latest",
-    "vite-plugin-vue-devtools": "^8.0.5",
-    "vitest": "^4.0.16",
+    "vite-plugin-vue-devtools": "^8.2.1",
+    "vitest": "^5.1.0",
     "vue-tsc": "^3.2.1"
   },
-  "sideEffects": [
-    "*.css"
-  ]
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
 }

@@ -6,7 +6,6 @@ type EventEmitterType = { [key in string]: Function };
 export const DYNAMIC_MODAL_INJECTION_KEY = Symbol('DYNAMIC_MODAL_INJECTION_KEY');
 export interface IDynamicModalOptions {
   title?: string;
-  //description?: string | Component | null | undefined;
   footer?: Component | null | undefined;
   props?: object | null | undefined;
   emits?: EventEmitterType;
